@@ -5,27 +5,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform player;
-    [SerializeField] private float speed;
-    [SerializeField] private bool isStart = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float speed;
+    //[SerializeField] private bool isGameStart = false;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            isStart = true;
-        }
+        InputManager.Instance.TaptoPlay();
         PlayerMovementHandler();
     }
 
     private void PlayerMovementHandler()
     {
-        if(isStart == true)
+        if(InputManager.Instance.isGameStart == true)
         {
             player.Translate(Vector3.back * Time.deltaTime * speed);
         }
