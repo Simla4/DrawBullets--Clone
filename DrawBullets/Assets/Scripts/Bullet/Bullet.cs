@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
+        InputManager.OnBulletFire += FireBullet;
+    }
+    private void OnDisable()
+    {
+        InputManager.OnBulletFire -= FireBullet;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        InputManager.Instance.FireBullet();
+    }
+
+    private void FireBullet()
+    {
+        var pos = gameObject.transform.position;
+        SpawnManager.Instance.SpawnBullet("Bullet",
+            new Vector3(pos.x, pos.y + 1, pos.z + 1),
+            Quaternion.identity);
+
+            Debug.Log("Action working...");
     }
 }
