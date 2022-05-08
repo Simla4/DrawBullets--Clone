@@ -18,7 +18,6 @@ public class EnemyMovement : MonoBehaviour
     {
         if(InputManager.Instance.isGameStart == true)
         {
-            //gameObject.transform.Translate(Vector3.forward * Time.deltaTime * speed);
             nMesh.destination = player.position;
         }
     }

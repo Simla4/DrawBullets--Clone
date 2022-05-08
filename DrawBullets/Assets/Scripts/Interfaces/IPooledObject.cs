@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IMovement 
+public interface IPooledObject 
 {
-    void MovementHandler();
+   public void OnObjectSpawn();
 }
