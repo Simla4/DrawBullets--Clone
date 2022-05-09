@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
         if(InputManager.Instance.isGameStart == true)
         {
             player.Translate(Vector3.back * Time.deltaTime * speed);
+            AnimationController.Instance.RunAnim();
         }
     }
 }

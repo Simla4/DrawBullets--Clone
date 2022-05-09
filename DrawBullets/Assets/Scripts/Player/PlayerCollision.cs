@@ -13,12 +13,14 @@ public class PlayerCollision : MonoBehaviour
         {
             Debug.Log("Failed");
             playerMovement.speed = 0;
+            AnimationController.Instance.DefeatAnim();
         }
         else if(other.gameObject.CompareTag("Finish"))
         {
             Debug.Log("Win");
             playerMovement.speed = 0;
             enemy.SetActive(false);
+            AnimationController.Instance.DanceAnim();
         }
     }
 }
